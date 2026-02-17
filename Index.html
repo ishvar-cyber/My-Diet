@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta name="theme-color" content="#22A6B3">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="DietPlan">
+<title>🍽️ Weekly Diet Plan</title>
+<link rel="manifest" href="data:application/json;base64,eyJuYW1lIjogIldlZWtseSBEaWV0IFBsYW4iLCAic2hvcnRfbmFtZSI6ICJEaWV0UGxhbiIsICJkZXNjcmlwdGlvbiI6ICJEb2N0b3IgcHJlc2NyaWJlZCB3ZWVrbHkgZGlldCBwbGFuIHdpdGggbWVhbC10aW1lIG5vdGlmaWNhdGlvbnMiLCAic3RhcnRfdXJsIjogIi4vIiwgImRpc3BsYXkiOiAic3RhbmRhbG9uZSIsICJiYWNrZ3JvdW5kX2NvbG9yIjogIiMwYTBhMTQiLCAidGhlbWVfY29sb3IiOiAiIzIyQTZCMyIsICJvcmllbnRhdGlvbiI6ICJwb3J0cmFpdC1wcmltYXJ5IiwgImNhdGVnb3JpZXMiOiBbImhlYWx0aCIsICJtZWRpY2FsIiwgImxpZmVzdHlsZSJdLCAiaWNvbnMiOiBbeyJzcmMiOiAiZGF0YTppbWFnZS9zdmcreG1sO2Jhc2U2NCxQSE4yWnlCNGJXeHVjejBpYUhSMGNEb3ZMM2QzZHk1M015NXZjbWN2TWpBd01DOXpkbWNpSUhkcFpIUm9QU0kwT0NJZ2FHVnBaMmgwUFNJME9DSWdkbWxsZDBKdmVEMGlNQ0F3SURRNElEUTRJajQ4WkdWbWN6NDhiR2x1WldGeVIzSmhaR2xsYm5RZ2FXUTlJbWNpSUhneFBTSXdKU0lnZVRFOUlqQWxJaUI0TWowaU1UQXdKU0lnZVRJOUlqRXdNQ1VpUGp4emRHOXdJRzltWm5ObGREMGlNQ1VpSUhOMGIzQXRZMjlzYjNJOUlpTXlNa0UyUWpNaUx6NDhjM1J2Y0NCdlptWnpaWFE5SWpVd0pTSWdjM1J2Y0MxamIyeHZjajBpSXpkRU5VWkdSaUl2UGp4emRHOXdJRzltWm5ObGREMGlNVEF3SlNJZ2MzUnZjQzFqYjJ4dmNqMGlJMFU0TkRNNU15SXZQand2YkdsdVpXRnlSM0poWkdsbGJuUStQQzlrWldaelBqeHlaV04wSUhkcFpIUm9QU0kwT0NJZ2FHVnBaMmgwUFNJME9DSWdjbmc5SWpFeUlpQm1hV3hzUFNKMWNtd29JMmNwSWk4K1BIUmxlSFFnZUQwaU5UQWxJaUI1UFNJMk1DVWlJR1p2Ym5RdGMybDZaVDBpTWpRaUlIUmxlSFF0WVc1amFHOXlQU0p0YVdSa2JHVWlJR1J2YldsdVlXNTBMV0poYzJWc2FXNWxQU0p0YVdSa2JHVWlJR1p2Ym5RdFptRnRhV3g1UFNKelpYSnBaaUkrSmlONE1VWXpOMFE3UEM5MFpYaDBQand2YzNablBnPT0iLCAic2l6ZXMiOiAiNDh4NDgiLCAidHlwZSI6ICJpbWFnZS9zdmcreG1sIiwgInB1cnBvc2UiOiAiYW55IG1hc2thYmxlIn0sIHsic3JjIjogImRhdGE6aW1hZ2Uvc3ZnK3htbDtiYXNlNjQsUEhOMlp5QjRiV3h1Y3owaWFIUjBjRG92TDNkM2R5NTNNeTV2Y21jdk1qQXdNQzl6ZG1jaUlIZHBaSFJvUFNJNU5pSWdhR1ZwWjJoMFBTSTVOaUlnZG1sbGQwSnZlRDBpTUNBd0lEazJJRGsySWo0OFpHVm1jejQ4YkdsdVpXRnlSM0poWkdsbGJuUWdhV1E5SW1jaUlIZ3hQU0l3SlNJZ2VURTlJakFsSWlCNE1qMGlNVEF3SlNJZ2VUSTlJakV3TUNVaVBqeHpkRzl3SUc5bVpuTmxkRDBpTUNVaUlITjBiM0F0WTI5c2IzSTlJaU15TWtFMlFqTWlMejQ4YzNSdmNDQnZabVp6WlhROUlqVXdKU0lnYzNSdmNDMWpiMnh2Y2owaUl6ZEVOVVpHUmlJdlBqeHpkRzl3SUc5bVpuTmxkRDBpTVRBd0pTSWdjM1J2Y0MxamIyeHZjajBpSTBVNE5ETTVNeUl2UGp3dmJHbHVaV0Z5UjNKaFpHbGxiblErUEM5a1pXWnpQanh5WldOMElIZHBaSFJvUFNJNU5pSWdhR1ZwWjJoMFBTSTVOaUlnY25nOUlqSTBJaUJtYVd4c1BTSjFjbXdvSTJjcElpOCtQSFJsZUhRZ2VEMGlOVEFsSWlCNVBTSTJNQ1VpSUdadmJuUXRjMmw2WlQwaU5Ea2lJSFJsZUhRdFlXNWphRzl5UFNKdGFXUmtiR1VpSUdSdmJXbHVZVzUwTFdKaGMyVnNhVzVsUFNKdGFXUmtiR1VpSUdadmJuUXRabUZ0YVd4NVBTSnpaWEpwWmlJK0ppTjRNVVl6TjBRN1BDOTBaWGgwUGp3dmMzWm5QZz09IiwgInNpemVzIjogIjk2eDk2IiwgInR5cGUiOiAiaW1hZ2Uvc3ZnK3htbCIsICJwdXJwb3NlIjogImFueSBtYXNrYWJsZSJ9LCB7InNyYyI6ICJkYXRhOmltYWdlL3N2Zyt4bWw7YmFzZTY0LFBITjJaeUI0Yld4dWN6MGlhSFIwY0RvdkwzZDNkeTUzTXk1dmNtY3ZNakF3TUM5emRtY2lJSGRwWkhSb1BTSXhORFFpSUdobGFXZG9kRDBpTVRRMElpQjJhV1YzUW05NFBTSXdJREFnTVRRMElERTBOQ0krUEdSbFpuTStQR3hwYm1WaGNrZHlZV1JwWlc1MElHbGtQU0puSWlCNE1UMGlNQ1VpSUhreFBTSXdKU0lnZURJOUlqRXdNQ1VpSUhreVBTSXhNREFsSWo0OGMzUnZjQ0J2Wm1aelpYUTlJakFsSWlCemRHOXdMV052Ykc5eVBTSWpNakpCTmtJeklpOCtQSE4wYjNBZ2IyWm1jMlYwUFNJMU1DVWlJSE4wYjNBdFkyOXNiM0k5SWlNM1JEVkdSa1lpTHo0OGMzUnZjQ0J2Wm1aelpYUTlJakV3TUNVaUlITjBiM0F0WTI5c2IzSTlJaU5GT0RRek9UTWlMejQ4TDJ4cGJtVmhja2R5WVdScFpXNTBQand2WkdWbWN6NDhjbVZqZENCM2FXUjBhRDBpTVRRMElpQm9aV2xuYUhROUlqRTBOQ0lnY25nOUlqTTJJaUJtYVd4c1BTSjFjbXdvSTJjcElpOCtQSFJsZUhRZ2VEMGlOVEFsSWlCNVBTSTJNQ1VpSUdadmJuUXRjMmw2WlQwaU56UWlJSFJsZUhRdFlXNWphRzl5UFNKdGFXUmtiR1VpSUdSdmJXbHVZVzUwTFdKaGMyVnNhVzVsUFNKdGFXUmtiR1VpSUdadmJuUXRabUZ0YVd4NVBTSnpaWEpwWmlJK0ppTjRNVVl6TjBRN1BDOTBaWGgwUGp3dmMzWm5QZz09IiwgInNpemVzIjogIjE0NHgxNDQiLCAidHlwZSI6ICJpbWFnZS9zdmcreG1sIiwgInB1cnBvc2UiOiAiYW55IG1hc2thYmxlIn0sIHsic3JjIjogImRhdGE6aW1hZ2Uvc3ZnK3htbDtiYXNlNjQsUEhOMlp5QjRiV3h1Y3owaWFIUjBjRG92TDNkM2R5NTNNeTV2Y21jdk1qQXdNQzl6ZG1jaUlIZHBaSFJvUFNJeE9USWlJR2hsYVdkb2REMGlNVGt5SWlCMmFXVjNRbTk0UFNJd0lEQWdNVGt5SURFNU1pSStQR1JsWm5NK1BHeHBibVZoY2tkeVlXUnBaVzUwSUdsa1BTSm5JaUI0TVQwaU1DVWlJSGt4UFNJd0pTSWdlREk5SWpFd01DVWlJSGt5UFNJeE1EQWxJajQ4YzNSdmNDQnZabVp6WlhROUlqQWxJaUJ6ZEc5d0xXTnZiRzl5UFNJak1qSkJOa0l6SWk4K1BITjBiM0FnYjJabWMyVjBQU0kxTUNVaUlITjBiM0F0WTI5c2IzSTlJaU0zUkRWR1JrWWlMejQ4YzNSdmNDQnZabVp6WlhROUlqRXdNQ1VpSUhOMGIzQXRZMjlzYjNJOUlpTkZPRFF6T1RNaUx6NDhMMnhwYm1WaGNrZHlZV1JwWlc1MFBqd3ZaR1ZtY3o0OGNtVmpkQ0IzYVdSMGFEMGlNVGt5SWlCb1pXbG5hSFE5SWpFNU1pSWdjbmc5SWpRNElpQm1hV3hzUFNKMWNtd29JMmNwSWk4K1BIUmxlSFFnZUQwaU5UQWxJaUI1UFNJMk1DVWlJR1p2Ym5RdGMybDZaVDBpT1RraUlIUmxlSFF0WVc1amFHOXlQU0p0YVdSa2JHVWlJR1J2YldsdVlXNTBMV0poYzJWc2FXNWxQU0p0YVdSa2JHVWlJR1p2Ym5RdFptRnRhV3g1UFNKelpYSnBaaUkrSmlONE1VWXpOMFE3UEM5MFpYaDBQand2YzNablBnPT0iLCAic2l6ZXMiOiAiMTkyeDE5MiIsICJ0eXBlIjogImltYWdlL3N2Zyt4bWwiLCAicHVycG9zZSI6ICJhbnkgbWFza2FibGUifSwgeyJzcmMiOiAiZGF0YTppbWFnZS9zdmcreG1sO2Jhc2U2NCxQSE4yWnlCNGJXeHVjejBpYUhSMGNEb3ZMM2QzZHk1M015NXZjbWN2TWpBd01DOXpkbWNpSUhkcFpIUm9QU0kxTVRJaUlHaGxhV2RvZEQwaU5URXlJaUIyYVdWM1FtOTRQU0l3SURBZ05URXlJRFV4TWlJK1BHUmxabk0rUEd4cGJtVmhja2R5WVdScFpXNTBJR2xrUFNKbklpQjRNVDBpTUNVaUlIa3hQU0l3SlNJZ2VESTlJakV3TUNVaUlIa3lQU0l4TURBbElqNDhjM1J2Y0NCdlptWnpaWFE5SWpBbElpQnpkRzl3TFdOdmJHOXlQU0lqTWpKQk5rSXpJaTgrUEhOMGIzQWdiMlptYzJWMFBTSTFNQ1VpSUhOMGIzQXRZMjlzYjNJOUlpTTNSRFZHUmtZaUx6NDhjM1J2Y0NCdlptWnpaWFE5SWpFd01DVWlJSE4wYjNBdFkyOXNiM0k5SWlORk9EUXpPVE1pTHo0OEwyeHBibVZoY2tkeVlXUnBaVzUwUGp3dlpHVm1jejQ4Y21WamRDQjNhV1IwYUQwaU5URXlJaUJvWldsbmFIUTlJalV4TWlJZ2NuZzlJakV5T0NJZ1ptbHNiRDBpZFhKc0tDTm5LU0l2UGp4MFpYaDBJSGc5SWpVd0pTSWdlVDBpTmpBbElpQm1iMjUwTFhOcGVtVTlJakkyTmlJZ2RHVjRkQzFoYm1Ob2IzSTlJbTFwWkdSc1pTSWdaRzl0YVc1aGJuUXRZbUZ6Wld4cGJtVTlJbTFwWkdSc1pTSWdabTl1ZEMxbVlXMXBiSGs5SW5ObGNtbG1JajRtSTNneFJqTTNSRHM4TDNSbGVIUStQQzl6ZG1jKyIsICJzaXplcyI6ICI1MTJ4NTEyIiwgInR5cGUiOiAiaW1hZ2Uvc3ZnK3htbCIsICJwdXJwb3NlIjogImFueSBtYXNrYWJsZSJ9XX0=">
+<link rel="apple-touch-icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxOTIiIGhlaWdodD0iMTkyIiB2aWV3Qm94PSIwIDAgMTkyIDE5MiI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJnIiB4MT0iMCUiIHkxPSIwJSIgeDI9IjEwMCUiIHkyPSIxMDAlIj48c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjMjJBNkIzIi8+PHN0b3Agb2Zmc2V0PSI1MCUiIHN0b3AtY29sb3I9IiM3RDVGRkYiLz48c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNFODQzOTMiLz48L2xpbmVhckdyYWRpZW50PjwvZGVmcz48cmVjdCB3aWR0aD0iMTkyIiBoZWlnaHQ9IjE5MiIgcng9IjQ4IiBmaWxsPSJ1cmwoI2cpIi8+PHRleHQgeD0iNTAlIiB5PSI2MCUiIGZvbnQtc2l6ZT0iOTkiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGRvbWluYW50LWJhc2VsaW5lPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJzZXJpZiI+JiN4MUYzN0Q7PC90ZXh0Pjwvc3ZnPg==">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxOTIiIGhlaWdodD0iMTkyIiB2aWV3Qm94PSIwIDAgMTkyIDE5MiI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJnIiB4MT0iMCUiIHkxPSIwJSIgeDI9IjEwMCUiIHkyPSIxMDAlIj48c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjMjJBNkIzIi8+PHN0b3Agb2Zmc2V0PSI1MCUiIHN0b3AtY29sb3I9IiM3RDVGRkYiLz48c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNFODQzOTMiLz48L2xpbmVhckdyYWRpZW50PjwvZGVmcz48cmVjdCB3aWR0aD0iMTkyIiBoZWlnaHQ9IjE5MiIgcng9IjQ4IiBmaWxsPSJ1cmwoI2cpIi8+PHRleHQgeD0iNTAlIiB5PSI2MCUiIGZvbnQtc2l6ZT0iOTkiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGRvbWluYW50LWJhc2VsaW5lPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJzZXJpZiI+JiN4MUYzN0Q7PC90ZXh0Pjwvc3ZnPg==">
+<style>
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+html,body{height:100%}
+body{
+  font-family:'Segoe UI',system-ui,-apple-system,sans-serif;
+  background:#0a0a14;color:#f0f0f0;
+  min-height:100vh;overflow-x:hidden;
+  padding-bottom:calc(70px + env(safe-area-inset-bottom));
+}
+
+/* ── INSTALL BANNER ─────────────────────────────────────── */
+#ib{
+  position:fixed;bottom:0;left:0;right:0;z-index:9000;
+  background:#12122a;border-top:2px solid #22A6B3;
+  padding:.9rem 1rem;
+  padding-bottom:calc(.9rem + env(safe-area-inset-bottom));
+  display:none;align-items:center;gap:.75rem;
+  box-shadow:0 -10px 40px rgba(0,0,0,.8);
+  animation:slideUp .4s cubic-bezier(.34,1.56,.64,1) both;
+}
+@keyframes slideUp{from{transform:translateY(100%)}to{transform:translateY(0)}}
+#ib.show{display:flex}
+.ib-ico{font-size:2rem;flex-shrink:0}
+.ib-txt{flex:1}
+.ib-txt b{display:block;font-size:.88rem;color:#fff;margin-bottom:.1rem}
+.ib-txt small{font-size:.7rem;color:#555}
+.ib-btns{display:flex;gap:.35rem;flex-shrink:0}
+#btnI{background:linear-gradient(135deg,#22A6B3,#7D5FFF);color:#fff;border:none;border-radius:9px;padding:.48rem .95rem;font-size:.78rem;font-weight:700;cursor:pointer}
+#btnL{background:rgba(255,255,255,.07);color:#555;border:none;border-radius:9px;padding:.48rem .8rem;font-size:.78rem;cursor:pointer}
+
+/* ── ALARM OVERLAY ──────────────────────────────────────── */
+#alarm{
+  position:fixed;inset:0;z-index:9999;
+  background:rgba(0,0,0,.88);backdrop-filter:blur(14px);
+  display:none;align-items:center;justify-content:center;padding:.8rem;
+}
+#alarm.show{display:flex}
+.al-box{
+  background:#14142b;border-radius:24px;padding:2rem 1.6rem;
+  max-width:320px;width:100%;text-align:center;
+  border:1px solid rgba(255,255,255,.1);
+  box-shadow:0 40px 100px rgba(0,0,0,.9);
+  animation:pop .4s cubic-bezier(.34,1.56,.64,1) both;
+}
+@keyframes pop{from{opacity:0;transform:scale(.55)}to{opacity:1;transform:scale(1)}}
+#alE{font-size:3.2rem;margin-bottom:.35rem}
+#alD{font-size:.7rem;color:#22A6B3;font-weight:700;text-transform:uppercase;letter-spacing:.1em;margin-bottom:.3rem}
+#alT{font-size:1.5rem;font-weight:800;margin-bottom:.2rem}
+#alS{color:#444;font-size:.78rem;margin-bottom:.85rem}
+#alF{
+  background:rgba(249,202,36,.1);border:1px solid rgba(249,202,36,.28);
+  border-radius:12px;padding:.75rem .9rem;font-size:.88rem;
+  color:#F9CA24;font-weight:600;line-height:1.5;margin-bottom:1rem;
+  text-align:left;
+}
+#alOk{
+  width:100%;background:linear-gradient(135deg,#22A6B3,#7D5FFF);
+  color:#fff;border:none;border-radius:12px;
+  padding:.75rem;font-size:.92rem;font-weight:700;cursor:pointer;
+}
+
+/* ── TOAST ──────────────────────────────────────────────── */
+#toast{
+  position:fixed;
+  bottom:calc(80px + env(safe-area-inset-bottom));
+  right:.75rem;z-index:8888;
+  background:#14142b;border:1px solid rgba(255,255,255,.08);
+  border-radius:12px;padding:.65rem 1rem;max-width:250px;
+  box-shadow:0 10px 30px rgba(0,0,0,.7);
+  transform:translateY(100px);opacity:0;
+  transition:all .38s cubic-bezier(.34,1.56,.64,1);
+  pointer-events:none;
+}
+#toast.show{transform:translateY(0);opacity:1}
+#tT{display:block;font-weight:700;color:#F9CA24;font-size:.82rem;margin-bottom:.1rem}
+#tB{color:#555;font-size:.72rem;line-height:1.4}
+
+/* ── LAYOUT ─────────────────────────────────────────────── */
+.wrap{max-width:600px;margin:0 auto;padding:.9rem .85rem}
+
+/* Header */
+.hdr{text-align:center;margin-bottom:1rem;padding-top:.3rem}
+.hdr-t{
+  font-size:clamp(1.4rem,5vw,2rem);font-weight:900;line-height:1.2;
+  background:linear-gradient(135deg,#22A6B3,#F9CA24,#E84393);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  margin-bottom:.2rem;
+}
+.hdr-s{color:#333;font-size:.74rem}
+
+/* Status strip */
+.strip{display:grid;grid-template-columns:1fr 1fr;gap:.6rem;margin-bottom:.9rem}
+.s-box{background:#12122a;border:1px solid rgba(255,255,255,.05);border-radius:13px;padding:.7rem .9rem}
+#clk{font-size:1.7rem;font-weight:800;color:#F9CA24;font-family:'Courier New',monospace;letter-spacing:2px;line-height:1}
+#clkD{color:#2a2a3a;font-size:.58rem;margin-top:.15rem;text-transform:uppercase;letter-spacing:.06em}
+.day-s{display:flex;align-items:center;gap:.55rem}
+#dE{font-size:1.4rem}
+#dN{font-weight:800;font-size:.9rem}
+.dl{color:#2a2a3a;font-size:.58rem;text-transform:uppercase;letter-spacing:.05em}
+
+/* Alert bar */
+.ab{
+  border-radius:13px;padding:.78rem .9rem;margin-bottom:.9rem;
+  display:flex;align-items:flex-start;gap:.65rem;
+  transition:background .5s,border .5s;
+}
+#abE{font-size:1.7rem;flex-shrink:0;margin-top:.05rem}
+#abT{font-weight:700;font-size:.84rem;margin-bottom:.18rem}
+#abB{color:#444;font-size:.72rem;line-height:1.45}
+
+/* Notif row */
+.nr{
+  display:flex;align-items:center;gap:.6rem;
+  background:#12122a;border:1px solid rgba(255,255,255,.05);
+  border-radius:11px;padding:.6rem .85rem;margin-bottom:.9rem;
+}
+.nl{flex:1;font-size:.73rem;color:#444;line-height:1.4}
+#nBtn{
+  border:none;border-radius:8px;padding:.42rem .85rem;
+  font-size:.74rem;font-weight:700;cursor:pointer;white-space:nowrap;
+  background:linear-gradient(135deg,#22A6B3,#7D5FFF);color:#fff;
+  transition:transform .15s;flex-shrink:0;
+}
+#nBtn:active{transform:scale(.93)}
+
+/* Tabs */
+.tabs{display:flex;gap:.35rem;margin-bottom:.9rem}
+.tb{flex:1;padding:.48rem;border-radius:10px;border:none;font-weight:700;font-size:.78rem;cursor:pointer;transition:all .2s}
+.tw{background:linear-gradient(135deg,#22A6B3,#7D5FFF);color:#fff}
+.tt{background:linear-gradient(135deg,#E84393,#FF9F43);color:#fff}
+.toff{background:#12122a;color:#333}
+
+/* Day accordion */
+.dc{border-radius:13px;margin-bottom:.6rem;overflow:hidden;border:1px solid rgba(255,255,255,.05)}
+.dh{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:.68rem .9rem;cursor:pointer;user-select:none;-webkit-user-select:none;
+}
+.dh:active{opacity:.75}
+.dl2{display:flex;align-items:center;gap:.45rem}
+.de{font-size:1.1rem}
+.dn{font-weight:800;font-size:.9rem}
+.tpill{
+  font-size:.52rem;font-weight:800;letter-spacing:.08em;
+  text-transform:uppercase;background:rgba(255,255,255,.22);
+  color:#fff;padding:.1rem .42rem;border-radius:20px;
+}
+.chv{transition:transform .25s;font-size:.85rem;opacity:.5;display:inline-block}
+.chv.o{transform:rotate(180deg)}
+
+/* Meal table */
+.db{display:none;background:#0d0d1e}
+.db.o{display:block}
+.cH{display:grid;grid-template-columns:140px 1fr 38px;padding:.3rem .8rem;border-bottom:1px solid rgba(255,255,255,.03)}
+.ch{font-size:.56rem;color:#1e1e30;font-weight:700;text-transform:uppercase;letter-spacing:.06em}
+.mr{display:grid;grid-template-columns:140px 1fr 38px;padding:.52rem .8rem;border-bottom:1px solid rgba(255,255,255,.025);align-items:center}
+.mr:last-of-type{border-bottom:none}
+.mn{font-weight:700;font-size:.77rem}
+.mt{color:#1e1e30;font-size:.6rem;margin-top:.08rem}
+.ntag{
+  font-size:.48rem;border-radius:20px;padding:.08rem .38rem;
+  font-weight:800;letter-spacing:.06em;color:#fff;
+  vertical-align:middle;margin-left:.28rem;
+  animation:blink 1.3s ease-in-out infinite;
+}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.25}}
+.mf{
+  color:#aaa;font-size:.76rem;line-height:1.4;
+  border:1px solid transparent;border-radius:7px;
+  padding:.25rem .42rem;cursor:pointer;transition:all .18s;
+}
+.mf:active{background:rgba(255,255,255,.03)}
+.mi{
+  width:100%;background:#18183a;border-radius:7px;
+  padding:.32rem .5rem;color:#f0f0f0;font-size:.76rem;
+  outline:none;font-family:inherit;line-height:1.4;
+  resize:none;border:1px solid #22A6B3;
+}
+.ea{display:flex;gap:.28rem;margin-top:.22rem}
+.bs{border:none;border-radius:6px;padding:.25rem .62rem;font-size:.68rem;font-weight:700;cursor:pointer;color:#fff}
+.bc{background:rgba(255,255,255,.06);color:#555;border:none;border-radius:6px;padding:.25rem .52rem;font-size:.68rem;cursor:pointer}
+.bell{background:none;border:none;cursor:pointer;font-size:1.1rem;line-height:1;padding:.12rem;transition:transform .15s;display:block;margin:0 auto}
+.bell:active{transform:scale(1.5)}
+.nr2{display:grid;grid-template-columns:140px 1fr;padding:.48rem .8rem;background:rgba(255,255,255,.01)}
+.nl2{font-size:.68rem;color:#1a1a2e;font-style:italic;font-weight:600}
+.nv2{color:#14142a;font-size:.66rem;font-style:italic}
+
+/* Today's full menu card */
+.today-card{
+  border-radius:14px;padding:1rem 1.1rem;margin-bottom:.9rem;
+  border:2px solid;
+}
+.today-label{font-size:.62rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;margin-bottom:.5rem}
+.today-grid{display:grid;grid-template-columns:1fr 1fr;gap:.45rem}
+.tg-item{border-radius:10px;padding:.5rem .65rem;background:rgba(0,0,0,.25)}
+.tg-meal{font-size:.62rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;margin-bottom:.18rem}
+.tg-food{font-size:.74rem;color:#ccc;line-height:1.4}
+
+/* Travel */
+.th{border-radius:14px;padding:1.1rem 1.3rem;margin-bottom:.9rem;background:#12122a;border:1px solid rgba(255,255,255,.05)}
+.th h2{font-size:1.3rem;font-weight:800;margin-bottom:.35rem}
+.th p{color:#333;font-size:.78rem;line-height:1.6}
+.tc{border-radius:13px;overflow:hidden;margin-bottom:.65rem;background:#0d0d1e}
+.tch{display:flex;align-items:center;gap:.55rem;padding:.7rem .85rem .5rem;border-bottom-width:2px;border-bottom-style:solid}
+.ti{font-size:1.6rem}
+.tt2{font-weight:700;font-size:.86rem}
+.ts{font-size:.63rem;color:#333}
+.tl{list-style:none;padding:.3rem .85rem .85rem}
+.tl li{font-size:.76rem;color:#aaa;padding:.26rem 0;border-bottom:1px solid rgba(255,255,255,.025);display:flex;gap:.42rem;align-items:flex-start;line-height:1.4}
+.tl li:last-child{border-bottom:none}
+.tbul{font-size:.46rem;margin-top:.37rem;flex-shrink:0}
+.tipb{border-radius:13px;padding:.95rem 1.05rem;background:linear-gradient(135deg,rgba(34,166,179,.08),rgba(125,95,255,.08));border:1px solid rgba(34,166,179,.18);margin-top:.2rem}
+.tiph{font-size:.68rem;color:#22A6B3;font-weight:700;text-transform:uppercase;letter-spacing:.06em;margin-bottom:.6rem}
+.tipg{display:grid;grid-template-columns:1fr 1fr;gap:.45rem}
+.tipi{background:rgba(0,0,0,.3);border-radius:9px;padding:.55rem .75rem}
+.tiptn{font-weight:700;font-size:.74rem;margin-bottom:.18rem}
+.tiptb{color:#333;font-size:.68rem;line-height:1.5}
+</style>
+</head>
+<body>
+
+<!-- Install Banner -->
+<div id="ib">
+  <div class="ib-ico">📲</div>
+  <div class="ib-txt">
+    <b>Add to Home Screen</b>
+    <small>Works like a real app · Offline · Real notifications</small>
+  </div>
+  <div class="ib-btns"><button id="btnI">Install</button><button id="btnL">Later</button></div>
+</div>
+
+<!-- Alarm Modal -->
+<div id="alarm">
+  <div class="al-box">
+    <div id="alE">🍽️</div>
+    <div id="alD">Monday</div>
+    <div id="alT">Meal Time!</div>
+    <div id="alS">Time to nourish your body.</div>
+    <div id="alF"></div>
+    <button id="alOk">✅ Got it!</button>
+  </div>
+</div>
+
+<!-- Toast -->
+<div id="toast"><strong id="tT"></strong><span id="tB"></span></div>
+
+<div class="wrap">
+
+  <div class="hdr">
+    <div class="hdr-t">🍽️ Weekly Diet Plan</div>
+    <div class="hdr-s">Doctor prescribed · Live meal alerts · Editable</div>
+  </div>
+
+  <!-- Clock + Day -->
+  <div class="strip">
+    <div class="s-box">
+      <div id="clk">00:00:00</div>
+      <div id="clkD">Loading…</div>
+    </div>
+    <div class="s-box">
+      <div class="day-s">
+        <span id="dE">🌅</span>
+        <div><div id="dN">—</div><div class="dl">Today</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Alert Bar -->
+  <div class="ab" id="ab">
+    <span id="abE">⏳</span>
+    <div><div id="abT">Calculating…</div><div id="abB"></div></div>
+  </div>
+
+  <!-- Notification row -->
+  <div class="nr">
+    <span class="nl">🔔 Enable notifications to get real meal-time alerts on your phone every day</span>
+    <button id="nBtn">Enable</button>
+  </div>
+
+  <!-- Tabs -->
+  <div class="tabs">
+    <button class="tb tw" id="tbW" onclick="setTab('w')">📅 Weekly Plan</button>
+    <button class="tb toff" id="tbT" onclick="setTab('t')">✈️ Travel Guide</button>
+  </div>
+
+  <div id="wv"></div>
+  <div id="tv" style="display:none"></div>
+
+</div>
+
+<script>
+// ════════════════════════════════════════════════════════
+//  REAL DATA FROM YOUR PPTX
+// ════════════════════════════════════════════════════════
+const DAYS=[
+  {n:"Monday",   e:"🌞",h:"#FF6B6B",bg:"#2a1010",idx:1},
+  {n:"Tuesday",  e:"🍊",h:"#FF9F43",bg:"#2a1b0a",idx:2},
+  {n:"Wednesday",e:"🥗",h:"#F9CA24",bg:"#27230a",idx:3},
+  {n:"Thursday", e:"🌿",h:"#6AB04C",bg:"#0f2010",idx:4},
+  {n:"Friday",   e:"💧",h:"#22A6B3",bg:"#082022",idx:5},
+  {n:"Saturday", e:"🎨",h:"#7D5FFF",bg:"#18103a",idx:6},
+  {n:"Sunday",   e:"🌸",h:"#E84393",bg:"#2a0f1e",idx:0},
+];
+
+// Meal schedule with exact times
+const MEALS=[
+  {n:"Breakfast",       e:"🍳",s:7, en:9, t:"7:00–9:00 AM"},
+  {n:"Mid-Morning Snack",e:"🍎",s:10,en:11,t:"10:00–11:00 AM"},
+  {n:"Lunch",           e:"🍛",s:12,en:14,t:"12:00–2:00 PM"},
+  {n:"Evening Snack",   e:"☕",s:16,en:17,t:"4:00–5:00 PM"},
+  {n:"Dinner",          e:"🍽️",s:19,en:21,t:"7:00–9:00 PM"},
+];
+
+// Exact food from your PPTX file
+const FOOD_DATA=[
+  // Monday (idx 0 = first in DAYS array)
+  ["Oatmeal with banana, low-fat milk (250ml)",
+   "Apple slices with almond butter",
+   "1 katori tuvar dal, brown rice, steamed carrot",
+   "Handful of mixed nuts & seeds",
+   "1 katori Quinoa and moong dal khichdi with ghee, mixed green salad"],
+  // Tuesday
+  ["Moong sprouts boiled 1 bowl, orange juice",
+   "Greek yogurt with honey & berries",
+   "Masoor dal with rice 1 katori, bhindi, cucumber salad",
+   "Carrot sticks with hummus",
+   "Uttapam with coconut chutney"],
+  // Wednesday
+  ["Besan chilla with veggies",
+   "Any seasonal vegetables",
+   "1 bowl kadhi with bajara rotla, cucumber salad",
+   "Makhana 1 bowl",
+   "Mix vegetable with moong dal soup 1 bowl"],
+  // Thursday
+  ["Vegetable upma",
+   "A banana & a handful of walnuts",
+   "Ragi roti, mix veg sabji, mix dal",
+   "Chana and gud",
+   "Dhokla 1 plate with green chutney or handvo"],
+  // Friday
+  ["Poha with veggies",
+   "Coconut water",
+   "Rajma and rice 1 bowl, mix veg salad",
+   "Mixed fruit salad",
+   "Bhel with vegetable"],
+  // Saturday
+  ["Khakhara",
+   "Juice",
+   "Idli sambar",
+   "Dates & pistachios",
+   "Boiled corn chat"],
+  // Sunday
+  ["Thepala",
+   "Watermelon slices",
+   "Vegetable biryani, cucumber raita, side salad",
+   "Popcorn (air-popped, lightly salted)",
+   "Khichdi"],
+];
+
+// ════════════════════════════════════════════════════════
+//  STATE
+// ════════════════════════════════════════════════════════
+const p2=n=>String(n).padStart(2,'0');
+let foods={}, armed=new Set(), notifPerm='default';
+let firedAlarms=new Set(), editKey=null, toastTmr=null, prevH=-1;
+let deferredPrompt=null;
+
+// Init foods from localStorage (fallback to PPTX data)
+DAYS.forEach((day,di)=>MEALS.forEach((meal,mi)=>{
+  const k=`f_${di}_${mi}`;
+  try{foods[k]=localStorage.getItem(k)||FOOD_DATA[di][mi];}
+  catch(e){foods[k]=FOOD_DATA[di][mi];}
+}));
+try{armed=new Set(JSON.parse(localStorage.getItem('armed')||'[]'));}catch(e){}
+
+// ════════════════════════════════════════════════════════
+//  SERVICE WORKER
+// ════════════════════════════════════════════════════════
+const SW=`
+const C='diet-v1';
+self.addEventListener('install',e=>{self.skipWaiting();});
+self.addEventListener('activate',e=>{e.waitUntil(clients.claim());});
+self.addEventListener('fetch',e=>{
+  e.respondWith(caches.open(C).then(cache=>
+    cache.match(e.request).then(r=>{
+      const net=fetch(e.request).then(res=>{
+        if(res.ok&&e.request.url.startsWith('http'))cache.put(e.request,res.clone());
+        return res;
+      }).catch(()=>r||new Response('<h1>Offline</h1>',{headers:{'Content-Type':'text/html'}}));
+      return r||net;
+    })
+  ));
+});
+self.addEventListener('notificationclick',e=>{
+  e.notification.close();
+  e.waitUntil(clients.matchAll({type:'window'}).then(cs=>{
+    if(cs.length)return cs[0].focus();
+    return clients.openWindow('./');
+  }));
+});
+`;
+if('serviceWorker' in navigator){
+  const blob=new Blob([SW],{type:'application/javascript'});
+  navigator.serviceWorker.register(URL.createObjectURL(blob),{scope:'./'})
+    .catch(e=>console.warn('SW:',e));
+}
+
+// ════════════════════════════════════════════════════════
+//  PWA INSTALL
+// ════════════════════════════════════════════════════════
+window.addEventListener('beforeinstallprompt',e=>{
+  e.preventDefault(); deferredPrompt=e;
+  const d=localStorage.getItem('ibDismiss');
+  if(!d||Date.now()-d>7*864e5)
+    setTimeout(()=>document.getElementById('ib').classList.add('show'),3000);
+});
+window.addEventListener('appinstalled',()=>{
+  document.getElementById('ib').classList.remove('show');
+  toast('🎉 Installed!','App is on your home screen now.');
+});
+document.getElementById('btnI').onclick=async()=>{
+  if(!deferredPrompt){toast('📲 Manual','Tap browser ⋮ menu → Add to Home Screen');return;}
+  deferredPrompt.prompt();
+  const{outcome}=await deferredPrompt.userChoice;
+  deferredPrompt=null;
+  document.getElementById('ib').classList.remove('show');
+  if(outcome==='accepted')toast('🎉 Installing…','Will appear on home screen shortly.');
+};
+document.getElementById('btnL').onclick=()=>{
+  document.getElementById('ib').classList.remove('show');
+  localStorage.setItem('ibDismiss',Date.now());
+};
+
+// ════════════════════════════════════════════════════════
+//  CLOCK
+// ════════════════════════════════════════════════════════
+const MNTHS=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+const DNAMES=['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+
+function tick(){
+  const now=new Date();
+  const h=now.getHours(),m=now.getMinutes(),s=now.getSeconds(),wd=now.getDay();
+  document.getElementById('clk').textContent=`${p2(h)}:${p2(m)}:${p2(s)}`;
+  document.getElementById('clkD').textContent=`${DNAMES[wd]}, ${now.getDate()} ${MNTHS[now.getMonth()]} ${now.getFullYear()}`;
+  // Today's day info (DAYS array indexed differently — find matching weekday)
+  const dayInfo=DAYS.find(d=>d.idx===wd)||DAYS[0];
+  const ds=document.querySelector('.s-box:last-child');
+  if(ds){ds.style.background=dayInfo.bg;ds.style.borderColor=dayInfo.h+'33';}
+  document.getElementById('dE').textContent=dayInfo.e;
+  document.getElementById('dN').textContent=dayInfo.n;
+  document.getElementById('dN').style.color=dayInfo.h;
+  updateBanner(h,m,wd);
+  checkAlarms(h,wd);
+}
+setInterval(tick,1000); tick();
+
+// ════════════════════════════════════════════════════════
+//  ALARM CHECK (fires at exact meal start hour)
+// ════════════════════════════════════════════════════════
+function checkAlarms(h,wd){
+  if(h===prevH)return; prevH=h;
+  const di=DAYS.findIndex(d=>d.idx===wd);
+  if(di<0)return;
+  MEALS.forEach((meal,mi)=>{
+    if(h===meal.s){
+      const key=`alm_${wd}_${mi}_${h}`;
+      if(firedAlarms.has(key))return;
+      firedAlarms.add(key);
+      const food=foods[`f_${di}_${mi}`]||FOOD_DATA[di][mi];
+      const dayInfo=DAYS[di];
+      if(armed.has(`${di}_${mi}`))showAlarm(meal.e,dayInfo.n,meal.n,meal.t,food);
+      if(notifPerm==='granted')sendNotif(`${meal.e} ${meal.n} — ${dayInfo.n}`,food);
+    }
+  });
+}
+
+// ════════════════════════════════════════════════════════
+//  ALERT BANNER
+// ════════════════════════════════════════════════════════
+function updateBanner(h,m,wd){
+  const di=DAYS.findIndex(d=>d.idx===wd);
+  let active=null,upcoming=null,minsLeft=0;
+  for(const meal of MEALS){
+    if(h>=meal.s&&h<meal.en){active=meal;break;}
+  }
+  if(!active){for(const meal of MEALS){if(h<meal.s){upcoming=meal;minsLeft=(meal.s-h)*60-m;break;}}}
+  const ab=document.getElementById('ab');
+  const abE=document.getElementById('abE');
+  const abT=document.getElementById('abT');
+  const abB=document.getElementById('abB');
+  if(active&&di>=0){
+    const mi=MEALS.indexOf(active);
+    const food=foods[`f_${di}_${mi}`]||FOOD_DATA[di][mi];
+    ab.style.cssText='border-radius:13px;padding:.78rem .9rem;margin-bottom:.9rem;display:flex;align-items:flex-start;gap:.65rem;background:linear-gradient(135deg,rgba(106,176,76,.18),rgba(34,166,179,.1));border:1px solid rgba(106,176,76,.4)';
+    abE.textContent=active.e;
+    abT.innerHTML=`<span style="color:#6AB04C">🟢 ${active.n} time now!</span> (${active.t})`;
+    abB.textContent='Today: '+food;
+  }else if(upcoming&&di>=0){
+    const mi=MEALS.indexOf(upcoming);
+    const food=foods[`f_${di}_${mi}`]||FOOD_DATA[di][mi];
+    const hrs=Math.floor(minsLeft/60),mins=minsLeft%60;
+    const ts=hrs>0?`${hrs}h ${mins}m`:`${mins} min`;
+    ab.style.cssText='border-radius:13px;padding:.78rem .9rem;margin-bottom:.9rem;display:flex;align-items:flex-start;gap:.65rem;background:linear-gradient(135deg,rgba(249,202,36,.13),rgba(255,159,67,.07));border:1px solid rgba(249,202,36,.28)';
+    abE.textContent=upcoming.e;
+    abT.innerHTML=`<span style="color:#F9CA24">⏳ ${upcoming.n}</span> in ${ts} (${upcoming.t})`;
+    abB.textContent='Plan ahead: '+food;
+  }else{
+    ab.style.cssText='border-radius:13px;padding:.78rem .9rem;margin-bottom:.9rem;display:flex;align-items:flex-start;gap:.65rem;background:rgba(255,255,255,.02);border:1px solid rgba(255,255,255,.04)';
+    abE.textContent='🌙';
+    abT.innerHTML='<span style="color:#333">All meals complete for today</span>';
+    abB.textContent='Avoid eating after 9 PM for better sleep.';
+  }
+}
+
+// ════════════════════════════════════════════════════════
+//  NOTIFICATIONS
+// ════════════════════════════════════════════════════════
+document.getElementById('nBtn').onclick=async function(){
+  if(!('Notification' in window)){toast('❌ Not Supported','Use Chrome on Android.');return;}
+  const p=await Notification.requestPermission();
+  notifPerm=p; setNotifBtn(p);
+  if(p==='granted')toast('🔔 Enabled!','You will get meal alerts at each meal time every day.');
+  else if(p==='denied')toast('❌ Blocked','Go to browser → Settings → Site Settings → Notifications → Allow.');
+};
+function setNotifBtn(p){
+  const b=document.getElementById('nBtn');
+  if(p==='granted'){b.textContent='✅ ON';b.style.background='linear-gradient(135deg,#6AB04C,#22A6B3)';}
+  else if(p==='denied'){b.textContent='❌ Blocked';b.style.background='#2a1010';b.style.color='#FF6B6B';}
+  else{b.textContent='Enable';b.style.background='linear-gradient(135deg,#22A6B3,#7D5FFF)';}
+}
+function sendNotif(title,body){
+  if(notifPerm!=='granted')return;
+  navigator.serviceWorker.ready.then(reg=>{
+    reg.showNotification(title,{body,vibrate:[250,100,250,100,300],tag:'diet',renotify:true});
+  }).catch(()=>{try{new Notification(title,{body});}catch(e){}});
+}
+if('Notification' in window){notifPerm=Notification.permission;setNotifBtn(notifPerm);}
+
+// ════════════════════════════════════════════════════════
+//  ALARM MODAL
+// ════════════════════════════════════════════════════════
+function showAlarm(emoji,dayName,mealName,time,food){
+  document.getElementById('alE').textContent=emoji;
+  document.getElementById('alD').textContent=dayName;
+  document.getElementById('alT').textContent=mealName+' Time!';
+  document.getElementById('alS').textContent=time+' — time to eat healthy!';
+  document.getElementById('alF').textContent='🍽️  '+food;
+  document.getElementById('alarm').classList.add('show');
+  if(navigator.vibrate)navigator.vibrate([300,150,300,150,500]);
+}
+document.getElementById('alOk').onclick=()=>document.getElementById('alarm').classList.remove('show');
+
+// ════════════════════════════════════════════════════════
+//  TOAST
+// ════════════════════════════════════════════════════════
+function toast(title,body){
+  clearTimeout(toastTmr);
+  document.getElementById('tT').textContent=title;
+  document.getElementById('tB').textContent=body;
+  const t=document.getElementById('toast');
+  t.classList.add('show');
+  toastTmr=setTimeout(()=>t.classList.remove('show'),3800);
+}
+
+// ════════════════════════════════════════════════════════
+//  TABS
+// ════════════════════════════════════════════════════════
+function setTab(tab){
+  document.getElementById('wv').style.display=tab==='w'?'block':'none';
+  document.getElementById('tv').style.display=tab==='t'?'block':'none';
+  document.getElementById('tbW').className='tb '+(tab==='w'?'tw':'toff');
+  document.getElementById('tbT').className='tb '+(tab==='t'?'tt':'toff');
+}
+
+// ════════════════════════════════════════════════════════
+//  BUILD WEEK VIEW
+// ════════════════════════════════════════════════════════
+function buildWeek(){
+  const container=document.getElementById('wv');
+  const wd=new Date().getDay();
+  // Today's quick-view card at top
+  const todayDi=DAYS.findIndex(d=>d.idx===wd);
+  if(todayDi>=0){
+    const dc=DAYS[todayDi];
+    const nowH=new Date().getHours();
+    const card=document.createElement('div');
+    card.className='today-card';
+    card.style.borderColor=dc.h+'66';
+    card.style.background=dc.bg;
+    card.style.boxShadow=`0 0 24px ${dc.h}18`;
+    const grid=MEALS.map((meal,mi)=>{
+      const food=foods[`f_${todayDi}_${mi}`]||FOOD_DATA[todayDi][mi];
+      const isNow=nowH>=meal.s&&nowH<meal.en;
+      return `<div class="tg-item" style="${isNow?`background:${dc.h}22;border:1px solid ${dc.h}44`:''}" >
+        <div class="tg-meal" style="color:${dc.h}">${meal.e} ${meal.n}${isNow?` <span style="background:${dc.h};color:#fff;font-size:.42rem;padding:.05rem .3rem;border-radius:20px;font-weight:800;letter-spacing:.06em">NOW</span>`:''}</div>
+        <div class="tg-food">${food}</div>
+      </div>`;
+    }).join('');
+    card.innerHTML=`<div class="today-label" style="color:${dc.h}">${dc.e} Today — ${dc.n}'s Full Menu</div><div class="today-grid">${grid}</div>`;
+    container.appendChild(card);
+  }
+
+  // All days accordion
+  DAYS.forEach((day,di)=>{
+    const isToday=day.idx===wd;
+    const wrap=document.createElement('div');
+    wrap.className='dc'; wrap.id=`dc${di}`;
+    if(isToday){wrap.style.borderColor=day.h+'77';wrap.style.boxShadow=`0 0 18px ${day.h}18`;}
+    const hdr=document.createElement('div');
+    hdr.className='dh';
+    hdr.style.background=isToday?day.h:day.bg;
+    hdr.innerHTML=`<div class="dl2"><span class="de">${day.e}</span><span class="dn" style="color:${isToday?'#fff':day.h}">${day.n}</span>${isToday?'<span class="tpill">TODAY</span>':''}</div><span class="chv${isToday?' o':''}" id="chv${di}">▾</span>`;
+    hdr.onclick=()=>{
+      const b=document.getElementById(`db${di}`);
+      const c=document.getElementById(`chv${di}`);
+      const o=b.classList.toggle('o');
+      c.classList.toggle('o',o);
+    };
+    const body=document.createElement('div');
+    body.className='db'+(isToday?' o':''); body.id=`db${di}`;
+    const cH=document.createElement('div');
+    cH.className='cH';
+    cH.innerHTML='<div class="ch">Meal &amp; Time</div><div class="ch">Food ✎ tap to edit</div><div class="ch" style="text-align:center">🔔</div>';
+    body.appendChild(cH);
+    const nowH=new Date().getHours();
+    MEALS.forEach((meal,mi)=>{
+      const isActive=isToday&&nowH>=meal.s&&nowH<meal.en;
+      body.appendChild(buildRow(di,mi,meal,day,isActive));
+    });
+    const nr2=document.createElement('div');
+    nr2.className='nr2';
+    nr2.innerHTML='<div class="nl2">📋 Doctor Notes</div><div class="nv2">Edit cells above for patient-specific adjustments</div>';
+    body.appendChild(nr2);
+    wrap.appendChild(hdr); wrap.appendChild(body);
+    container.appendChild(wrap);
+  });
+}
+
+function buildRow(di,mi,meal,day,isActive){
+  const k=`f_${di}_${mi}`;
+  const isArmed=armed.has(`${di}_${mi}`);
+  const row=document.createElement('div');
+  row.className='mr'; row.id=`mr${di}_${mi}`;
+  if(isActive)row.style.background=day.h+'14';
+  row.innerHTML=`
+    <div>
+      <div class="mn" style="color:${isActive?day.h:'#bbb'}">${meal.e} ${meal.n}${isActive?`<span class="ntag" style="background:${day.h}">NOW</span>`:''}</div>
+      <div class="mt">${meal.t}</div>
+    </div>
+    <div id="fc${di}_${mi}">
+      <div class="mf" id="ft${di}_${mi}" onclick="startEdit(${di},${mi})" style="${isActive?`border-color:${day.h}44`:''}">${foods[k]}</div>
+    </div>
+    <div><button class="bell" id="bell${di}_${mi}" onclick="toggleBell(${di},${mi})" style="${isArmed?'filter:drop-shadow(0 0 5px #F9CA24)':''}">${isArmed?'⏰':'🔔'}</button></div>`;
+  return row;
+}
+
+// ════════════════════════════════════════════════════════
+//  EDIT
+// ════════════════════════════════════════════════════════
+function startEdit(di,mi){
+  if(editKey)cancelEdit();
+  editKey=`${di}_${mi}`;
+  const k=`f_${di}_${mi}`;
+  const cell=document.getElementById(`fc${di}_${mi}`);
+  const day=DAYS[di];
+  cell.innerHTML=`<textarea class="mi" id="inp${di}_${mi}" rows="2">${foods[k]}</textarea>
+    <div class="ea">
+      <button class="bs" style="background:${day.h}" onclick="saveEdit(${di},${mi})">Save ✓</button>
+      <button class="bc" onclick="cancelEdit()">✕</button>
+    </div>`;
+  const inp=document.getElementById(`inp${di}_${mi}`);
+  inp.focus(); inp.select();
+  inp.onkeydown=e=>{if(e.key==='Enter'&&!e.shiftKey){e.preventDefault();saveEdit(di,mi);}if(e.key==='Escape')cancelEdit();};
+}
+function saveEdit(di,mi){
+  const inp=document.getElementById(`inp${di}_${mi}`);
+  if(!inp)return;
+  const val=inp.value.trim()||FOOD_DATA[di][mi];
+  const k=`f_${di}_${mi}`;
+  foods[k]=val;
+  try{localStorage.setItem(k,val);}catch(e){}
+  editKey=null;
+  const cell=document.getElementById(`fc${di}_${mi}`);
+  const day=DAYS[di];
+  const wd=new Date().getDay();
+  const isActive=day.idx===wd&&new Date().getHours()>=MEALS[mi].s&&new Date().getHours()<MEALS[mi].en;
+  cell.innerHTML=`<div class="mf" id="ft${di}_${mi}" onclick="startEdit(${di},${mi})" style="${isActive?`border-color:${day.h}44`:''}">${val}</div>`;
+  toast('💾 Saved','Food updated and stored on device.');
+}
+function cancelEdit(){
+  if(!editKey)return;
+  const[di,mi]=editKey.split('_').map(Number);
+  const k=`f_${di}_${mi}`;
+  const cell=document.getElementById(`fc${di}_${mi}`);
+  const day=DAYS[di];
+  const wd=new Date().getDay();
+  const isActive=day.idx===wd&&new Date().getHours()>=MEALS[mi].s&&new Date().getHours()<MEALS[mi].en;
+  if(cell)cell.innerHTML=`<div class="mf" id="ft${di}_${mi}" onclick="startEdit(${di},${mi})" style="${isActive?`border-color:${day.h}44`:''}">${foods[k]}</div>`;
+  editKey=null;
+}
+
+// ════════════════════════════════════════════════════════
+//  BELL
+// ════════════════════════════════════════════════════════
+function toggleBell(di,mi){
+  const k=`${di}_${mi}`;
+  const bell=document.getElementById(`bell${di}_${mi}`);
+  if(armed.has(k)){
+    armed.delete(k); bell.textContent='🔔'; bell.style.filter='';
+    toast('🔕 Removed',`${MEALS[mi].n} reminder cancelled.`);
+  }else{
+    armed.add(k); bell.textContent='⏰'; bell.style.filter='drop-shadow(0 0 5px #F9CA24)';
+    toast('⏰ Armed!',`${MEALS[mi].n} alarm set for ${MEALS[mi].t} every ${DAYS[di].n}.`);
+  }
+  try{localStorage.setItem('armed',JSON.stringify([...armed]));}catch(e){}
+}
+
+// ════════════════════════════════════════════════════════
+//  TRAVEL VIEW
+// ════════════════════════════════════════════════════════
+const TRAVEL=[
+  {ic:"🚗",ti:"Car / Road Trip",su:"Short to long drives",co:"#FF9F43",li:["Trail mix — nuts, dried cranberries, seeds","Pre-cut fruit: grapes, apple slices, orange","Whole grain crackers with nut butter packs","Hard-boiled eggs in a sealed container","Hummus cups with veggie sticks","Small water bottles — hydration prevents fatigue"]},
+  {ic:"✈️",ti:"Air Travel",su:"Flights & airports",co:"#22A6B3",li:["Empty reusable bottle — fill after security","Overnight oat jars (TSA allows solids)","Nut/seed mix to skip salty airline snacks","Banana or whole fruit — no utensils needed","Ginger chews for motion sickness","Electrolyte tablets — planes dehydrate fast"]},
+  {ic:"🚂",ti:"Train / Bus",su:"Longer seated journeys",co:"#7D5FFF",li:["Whole grain sandwiches: paneer, avocado, lettuce","Thermos of green tea or chaach","Roasted chickpeas — high protein, low mess","Thepla (from your Sunday plan!) — perfect travel food","Avoid fried/spicy — digestion slows when seated","Freeze damp cloth: cool compress + wipe"]},
+  {ic:"🏕️",ti:"Outdoor / Hiking",su:"Treks & nature walks",co:"#6AB04C",li:["Chana and gud (Thursday plan) — perfect energy snack","Dates + almond butter: fast energy & healthy fat","Makhana (Wednesday plan) — lightweight & nutritious","Electrolyte sachets — critical when sweating","1 L water per 2 hrs of activity — track it","Instant oatmeal for camp mornings"]},
+  {ic:"🌍",ti:"International Travel",su:"Time zones & new regions",co:"#E84393",li:["Fast 16 hrs before arrival — resets body clock","Eat at local meal times from day one","Probiotics 2 weeks pre-travel to protect gut","Bottled/filtered water only in risk regions","Carry familiar snacks: chana, makhana, thepla","Oral rehydration salts for traveller's diarrhea"]},
+  {ic:"💼",ti:"Business Travel",su:"Meetings & conferences",co:"#FF6B6B",li:["Eat proper breakfast — skip the pastries","Protein at lunch prevents afternoon energy slump","Carry your makhana or chana-gud snack packs","Stay hydrated: coffee & AC both dehydrate","Restaurants: grilled not fried, sauce aside","No heavy meals before presentations"]},
+];
+
+function buildTravel(){
+  const c=document.getElementById('tv');
+  c.innerHTML=`<div class="th"><h2>✈️ Travel Food Guide</h2><p>Smart healthy eating on every journey — customised with foods from your own diet plan.</p></div>`;
+  TRAVEL.forEach(cat=>{
+    const card=document.createElement('div');
+    card.className='tc';
+    card.innerHTML=`
+      <div class="tch" style="border-bottom-color:${cat.co};background:linear-gradient(135deg,${cat.co}12,transparent)">
+        <span class="ti">${cat.ic}</span>
+        <div><div class="tt2" style="color:${cat.co}">${cat.ti}</div><div class="ts">${cat.su}</div></div>
+      </div>
+      <ul class="tl">${cat.li.map(i=>`<li><span class="tbul" style="color:${cat.co}">✦</span>${i}</li>`).join('')}</ul>`;
+    c.appendChild(card);
+  });
+  const tips=document.createElement('div');
+  tips.className='tipb';
+  tips.innerHTML=`<div class="tiph">⚕️ Doctor's Travel Health Tips</div>
+    <div class="tipg">
+      <div class="tipi"><div class="tiptn" style="color:#F9CA24">💧 Hydration</div><div class="tiptb">200–300 ml water every 2 hrs prevents fatigue & headaches.</div></div>
+      <div class="tipi"><div class="tiptn" style="color:#6AB04C">🕐 Meal Timing</div><div class="tiptb">Eat within 1 hr of your usual meal times to stay on rhythm.</div></div>
+      <div class="tipi"><div class="tiptn" style="color:#22A6B3">⚖️ Portions</div><div class="tiptb">Reduce ~20% — activity drops significantly during travel.</div></div>
+      <div class="tipi"><div class="tiptn" style="color:#E84393">🚫 Avoid</div><div class="tiptb">Greasy food, alcohol & high-sodium snacks worsen travel fatigue.</div></div>
+    </div>`;
+  c.appendChild(tips);
+}
+
+// ════════════════════════════════════════════════════════
+//  INIT
+// ════════════════════════════════════════════════════════
+buildWeek();
+buildTravel();
+</script>
+</body>
+</html>
